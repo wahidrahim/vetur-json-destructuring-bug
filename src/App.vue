@@ -6,11 +6,13 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import { vueFile } from '@/assets/test.json'; // VSCode error: Module ''*.json'' has no exported member 'vueFile'.
+import jsonFile from '@/assets/test.json'; // importing without destructuring works
 
 @Component
 export default class App extends Vue {
   private created() {
     console.log(vueFile); // shows "This is a .vue file"
+    console.log(jsonFile) // shows test.json as an object
   }
 }
 </script>
