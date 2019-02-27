@@ -1,20 +1,18 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import { vueFile } from '@/assets/test.json'; // VSCode error: Module ''*.json'' has no exported member 'vueFile'.
 
-@Component({
-  components: {
-    HelloWorld,
-  },
-})
-export default class App extends Vue {}
+@Component
+export default class App extends Vue {
+  private created() {
+    console.log(vueFile); // shows "This is a .vue file"
+  }
+}
 </script>
 
 <style>
